@@ -1,3 +1,17 @@
+@main-color: rgb(185, 145, 80);
+@second-color: rgb(255, 175, 24);
+@third-color:rgb(56, 36, 0);
+
+.white-box() {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 3px 13.8px 1.2px rgba(152, 152, 152, 0.2);
+    padding: 16px 0 15px 0;
+}
+
+
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -25,22 +39,26 @@ body {
 .btn {
     font-size: 16px;
     font-family: MullerBold, sans-serif;
-    background-color: rgb(255, 175, 24);
-    color: rgb(56, 36, 0);
-    width: 224px;
+    background-color: @second-color;
+    color: @third-color;
     cursor: pointer;
-    height: 60px;
     border: none;
     padding: 22px;
     box-sizing: border-box;
+
+    &:hover {
+        background-color: rgb(237, 168, 25);
+    }
+}
+.main__btn {
+    height: 60px;
+    width: 224px;
 }
 
 /*header*/
 
 .header {
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 3px 13.8px 1.2px rgba(152, 152, 152, 0.2);
-    padding: 16px 0 15px 0;
+    .white-box()
 }
 
 .container {
@@ -48,23 +66,26 @@ body {
     margin: 0 auto;
 }
 
-.header .container {
+.header__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.menu ul {
+.menu__list {
     list-style: none;
     display: flex;
     width: 489px;
     justify-content: space-between;
 }
 
-.menu-item a {
+.menu__link {
     text-decoration: none;
     font-size: 16px;
     color: rgb(164, 107, 0);
+}
+.menu__link_active {
+border-bottom: 2px solid rgb(164, 107, 0);
 }
 
 /*main*/
@@ -73,31 +94,31 @@ body {
     margin: 132px 0 81px 0;
 }
 
-.main .container {
+.main__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.main-info {
+.main__info {
     max-width: 622px;
 }
 
-.main-info h1 {
+.main__double-title {
     font-size: 45px;
     font-family: MullerExtraBold, sans-serif;
     line-height: 1.222;
 }
 
 .double-title {
-    color: rgb(185, 145, 80);
+    color: @main-color;
 }
 
-.double-title span {
+.double-title__span {
     color: #ffaf18;
 }
 
-.main-advantages {
+.main__advantages {
     margin-top: 13px;
     display: flex;
     flex-wrap: wrap;
@@ -112,24 +133,24 @@ body {
     margin-top: 47px;
 }
 
-.advantage-text {
+.advantage__text {
     margin-left: 16px;
 }
 
-.advantage-title {
+.advantage__title {
     font-size: 16px;
     font-family: MullerExtraBold, sans-serif;
-    color: rgb(255, 175, 24);
+    color: @second-color;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
 
-.advantage-description {
+.advantage__description {
     font-size: 16px;
-    color: rgb(185, 145, 80);
+    color: @main-color;
 }
 
-.main-action {
+.main__action {
     margin-top: 60px;
 }
 
@@ -139,44 +160,51 @@ body {
     padding: 80px 0 120px 0;
 }
 
-.products-title {
+.products__title {
     font-size: 35px;
     font-family: MullerBold, sans-serif;
     color: rgb(189, 152, 92);
     text-align: center;
 }
 
-.products-items {
+.products__items {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 35px;
+
+    .product {
+        width: 282px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 3px 13.8px 1.2px rgba(152, 152, 152, 0.2);
+        text-align: center;
+        padding: 15px 20px;
+        box-sizing: border-box;
+        margin-top: 24px;
+        &:hover {
+            .product__image {
+                transform: scale(1.1);
+            }
+        }
+    }
 }
 
-.product {
-    width: 282px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 3px 13.8px 1.2px rgba(152, 152, 152, 0.2);
-    text-align: center;
-    padding: 15px 20px;
-    box-sizing: border-box;
-    margin-top: 24px;
-}
 
-.product-image {
+
+.product__image {
     height: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.product-title {
+.product__title {
     font-size: 18px;
     font-family: MullerBold, sans-serif;
-    color: rgb(56, 36, 0);
+    color: @third-color;
 }
 
-.product-text {
+.product__text {
     font-size: 14px;
     color: rgb(24, 26, 26);
     height: 49px;
@@ -184,7 +212,7 @@ body {
     margin: 14px 0 15px 0;
 }
 
-.product-action .btn {
+.product__btn {
     width: 242px;
     padding: 17px;
     height: 50px;
@@ -196,106 +224,91 @@ body {
     padding: 120px 0 115px 0;
     overflow: hidden;
 }
-
-.order .container {
+.order__container {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-}
 
-.order-text {
+}
+.order__text {
     max-width: 384px;
 }
-
-.order-text-title {
+.order__double-title {
     font-size: 35px;
     font-family: MullerExtraBold, sans-serif;
     margin-bottom: 65px;
 }
-
-.order-text-message {
+.order__text-message {
     font-size: 16px;
-    color: rgb(185, 145, 80);
+    color: @main-color;
     line-height: 1.5;
 }
-
-.order-form {
+.order__form {
     margin-left: 122px;
     width: 330px;
-}
 
-.order-input {
+}
+.order__base-input {
     border-width: 1px;
-    border-color: rgb(185, 145, 80);
+    border-color: @main-color;
     border-style: solid;
     background-color: rgb(255, 255, 255);
-    width: 330px;
     padding: 23px 22px 24px 22px;
     font-size: 18px;
     color: rgb(154, 118, 54);
-    margin-bottom: 24px;
     box-sizing: border-box;
-    height: 60px;
     outline: none;
 }
-
-.order-input::placeholder {
-    color: rgb(203, 168, 110);
-}
-
-.order .btn {
+.order-input {
     width: 330px;
+    margin-bottom: 24px;
     height: 60px;
 }
-
-.order-image {
+.order__image-img {
+    position: absolute;
+    bottom: -35px;
+}
+.order__base-input::placeholder {
+    color: rgb(203, 168, 110);
+}
+.order__image {
     width: 282px;
     position: relative;
     margin-left: 78px;
 }
-
-.order-image img {
-    position: absolute;
-    bottom: -35px;
+.order__btn {
+    width: 330px;
+    height: 60px;
 }
-
 /*footer*/
 
 .footer {
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 0 13.8px 1.2px rgba(152, 152, 152, 0.2);
-    padding: 16px 0 15px 0;
+    .white-box();
 }
-
-.footer .container {
+.footer__container {
     display: flex;
     align-items: center;
-}
 
-.rights {
+}
+.footer__rights {
     font-size: 12px;
     color: rgb(186, 179, 179);
     margin-left: 358px;
 }
-
-.burger {
+.header__burger {
     display: none;
 }
-.menu .close {
+.menu__close {
     display: none;
 }
 
+.parallax-window {
+    min-height: 600px;
+    background: transparent;
+}
 
 
-
-
-
-
-
-
-
-
-
+@import "adaptive";
 
 
 
